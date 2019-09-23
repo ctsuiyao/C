@@ -13,13 +13,17 @@ int main() {
     int characters = 0;
     int words = 1;
     int newlines = 0;
+    int space = 0;
     while ((a = getchar())!=EOF)
     {
         if ((a >= 'a'&&a <= 'z') || (a >= 'A'&&a <= 'Z')){
+            space = 0;
             characters++;
-        }else if (a == ' '){
+        }else if ((a == ' ') && space!=1){
+            space = 1;
             words++;
         }else if (a == '\n'){
+            space = 0;
             newlines++;
         }
         
