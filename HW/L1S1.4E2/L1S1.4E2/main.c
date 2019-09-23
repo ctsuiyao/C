@@ -1,20 +1,20 @@
 //
 //  main.c
-//  L1S1.4E1
+//  L1S1.4E2
 //
-//  Created by Christine on 2019/8/28.
-//  Copyright © 2019 Christine. All rights reserved.
+//  Created by Christine Chan on 9/23/19.
+//  Copyright © 2019 Christine Chan. All rights reserved.
 //
 
 #include <stdio.h>
 
 int main() {
-    char a;
+    char a= " ";
     int characters = 0;
-    int words = 1;
+    int words = 0 ;
     int newlines = 0;
-    while ((a = getchar())!=EOF)
-    {
+    
+    do{
         if ((a >= 'a'&&a <= 'z') || (a >= 'A'&&a <= 'Z')){
             characters++;
         }else if (a == ' '){
@@ -22,9 +22,7 @@ int main() {
         }else if (a == '\n'){
             newlines++;
         }
-        
-        
-    }
+    }while ((a = getchar())!=EOF);
     printf("The number of characters is %d\n", characters);
     printf("The number of words is %d\n", words);
     printf("The number of newlines is %d\n", newlines);
