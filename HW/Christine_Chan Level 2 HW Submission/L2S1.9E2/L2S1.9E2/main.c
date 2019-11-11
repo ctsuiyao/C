@@ -20,12 +20,16 @@ int main(int argc, const char * argv[]) {
     int index = 0; // index of the array
     FILE *fptr;
     char fname[10];
-    
-    printf( "\nEnter a file name :");
-    gets (fname);
-    fptr = fopen("test.txt", "w");
-    if (!fptr) fptr = fopen("test.txt", "wb");
 
+    printf("Enter a file name: ");
+    gets (fname);
+    
+    fptr = fopen(fname, "w");
+    if (fptr == NULL)
+    {
+        fptr = fopen(fname, "wb");
+    }
+    
     printf( "Enter a string :");
     while(1){
         x=getchar();
@@ -35,7 +39,9 @@ int main(int argc, const char * argv[]) {
         if(x==10){ // print out when press "Enter"
             printf( "You entered: \n");
             printf(y);
-            fprintf(fptr,"%s", y);
+            fputs(y, fptr);
+            fputs("\n", fptr);
+            
             memset(y, 0, MAX_LINE); // reset array
             index = 0; // reset index counter
 
