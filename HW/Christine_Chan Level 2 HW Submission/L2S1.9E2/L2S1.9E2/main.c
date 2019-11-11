@@ -1,25 +1,30 @@
 //
 //  main.c
-//  L2S1.9E1
+//  L2S1.9E2
 //
 //  Created by Christine on 2019/11/11.
 //  Copyright © 2019 Christine. All rights reserved.
 //
 
+// Alter the last program of exercise 1, output is written to a file.
+// The file to write to must be specified by the user.
 #include <stdio.h>
+#include <stdlib.h>  /* For exit() function */
+
 #define MAX_LINE 256
 
 
 int main(int argc, const char * argv[]) {
-    // Create a C-program that reads the characters from the keyboard and shows them on screen
-    // (the inputted characters should only be displayed when the user hits 'enter',
-    // line by line).
-    //When ^A is entered, the program must end properly. T
-    // hen the following message will appear: “CTRL + A is a correct ending.”
-    // Tip: getchar() reads and putchar() writes the type int. The value of ^A is 1.
     int x;
     char y[MAX_LINE];
     int index = 0; // index of the array
+    FILE *fptr;
+    char fname[10];
+    
+    printf( "\nEnter a file name :");
+    gets (fname);
+    fptr = fopen("test.txt", "w");
+    if (!fptr) fptr = fopen("test.txt", "wb");
 
     printf( "Enter a string :");
     while(1){
@@ -30,15 +35,19 @@ int main(int argc, const char * argv[]) {
         if(x==10){ // print out when press "Enter"
             printf( "You entered: \n");
             printf(y);
+            fprintf(fptr,"%s", y);
             memset(y, 0, MAX_LINE); // reset array
             index = 0; // reset index counter
-            printf(y);
+
             printf( "\nEnter a string :");
         }else{
             y[index] = x; // concatenate new character to the array
             index ++; // add the index
         }
     }
+    
+    
+    fclose(fptr);
     
     printf( "\nCTRL + A is a correct ending.\n");
 
