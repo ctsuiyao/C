@@ -1,11 +1,13 @@
 //
 //  Point.cpp
-//  L3S2.2E1
+//  L3S2.2E2
 //
-//  Created by Christine on 2019/11/12.
-//  Copyright © 2019 Christine. All rights reserved.
+//  Created by Christine Chan on 11/12/19.
+//  Copyright © 2019 Christine Chan. All rights reserved.
 //
 #include <sstream>
+#include <cmath>
+#include <math.h>
 #include "Point.hpp"
 
 Point::Point()
@@ -60,4 +62,17 @@ void Point::ToString()
     std::string strObj = streamObj.str();
     
     cout << strObj << endl;
+}
+
+double Point::DistanceOrigin()
+{
+    double d;
+    d = std::sqrt((pow(px,2)+pow (py, 2)));
+    return d;
+}
+double Point::Distance(Point p)
+{
+    double d;
+    d = std::sqrt((pow((px-p.px),2)+pow((py-p.py), 2)));
+    return d;
 }

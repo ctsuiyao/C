@@ -12,8 +12,13 @@
 
 
 int main(int argc, const char * argv[]) {
-    Point p1(3,2);
+    double i, j;
+    cout << "Please enter X axis: ";
+    cin >> i;
+    cout << "Please enter Y axis: ";
+    cin >> j;
     
-    std::cout << p1.ToString();
+    Point p1(i, j);
+    p1.ToString();
     return 0;
 }
