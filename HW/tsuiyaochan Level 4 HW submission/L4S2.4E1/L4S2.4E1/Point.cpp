@@ -12,13 +12,11 @@
 
 Point::Point()
 {// Default constructor
-    cout << "this is the default constructor\n";
     px = py =0.0;
 }
 
 Point::Point(double x, double y)
 {// Initialize using x and y
-    cout << "this is the parameterized constructor\n";
     px = x;
     py = y;
 }
@@ -26,7 +24,6 @@ Point::Point(double x, double y)
 
 Point::Point(const Point &pc)
 {
-    cout << "this is a copy constructor\n";
     px = pc.px;
     py = pc.py;
     
@@ -36,24 +33,27 @@ Point::Point(const Point &pc)
 
 Point::~Point()
 {// Des...
-    cout << "this is the deconstructor\n";
-    cout << "delete point..\n";
+    //cout << "delete point..\n";
 }
-
-
-Point operator * (double factor) const; // Scale the coordinates.
-Point operator + (const Point& p) const; // Add coordinates.
-bool operator == (const Point& p) const; // Equally compare operator.
-Point& operator *= (double factor);
 
 
 // Negate the coordinates.
 Point Point::operator - (const Point& pt) const
-{ // Subtract two Coordinates
-    return Complex(px - pt.x, py - pt.y);
+{
+    return Point(px - pt.px, py - pt.py);
 }
 
-Point operator * (double factor) const; 
+// Scale the coordinates.
+Point Point::operator * (double factor) const
+{
+    return Point(px*factor, py*factor);
+}
+
+// Add coordinates.
+Point Point::operator + (const Point& p) const
+{
+        return Point(px + p.px, py + p.py);
+}
 
 
 // Assignment operator.
@@ -63,33 +63,25 @@ Point& Point::operator = (const Point& p)
     if (this == &p)
         return *this;
 
-    px = p.x;
-    py = p.y;
+    px = p.px;
+    py = p.py;
 
     return *this;
 }
-
-Complex& Complex::operator += (const Complex& c)
+// Equally compare operator.
+bool Point::operator == (const Point& p) const
 {
-        x += c.x;
-        y += c.y;
-
-        return *this;
+    if((px==p.px)&&(py==p.py)){
+        return true;
+    }else{
+        return false;
+    }
 }
-
-Complex& Complex::operator -= (const Complex& c)
-{
-        x -= c.x;
-        y -= c.y;
-
-        return *this;
-}
-
-
-Complex& Complex::operator *= (const Complex& c) // Scale the coordinates & assign
+                     
+Point& Point::operator *= (double factor) // Scale the coordinates & assign
 {
 
-    Complex tmp = (*this) * c;
+    Point tmp = (*this) * factor;
     *this = tmp;
 
     return *this;
