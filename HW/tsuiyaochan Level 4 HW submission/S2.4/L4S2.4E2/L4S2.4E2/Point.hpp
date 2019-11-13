@@ -39,10 +39,11 @@ public:
     Point& operator *= (double factor); // Scale the coordinates & assign
     
     string ToString() const;
-    friend ostream& operator << (ostream& os, const Point& p);
+    
     
     double Distance() const; // Calculate the distance to the origin (0, 0).
     double Distance(const Point& p) const; // Calculate the distance between two points.
 };
+ostream& operator << (ostream& os, const Point& p);
 
 #endif /* Point_hpp */

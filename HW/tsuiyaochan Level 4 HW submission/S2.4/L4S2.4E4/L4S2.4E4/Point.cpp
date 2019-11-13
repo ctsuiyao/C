@@ -21,12 +21,6 @@ Point::Point(double x, double y)
     py = y;
 }
 
-Point::Point(double x)
-{// Initialize using x
-    px = x;
-    py = x;
-}
-
 
 Point::Point(const Point &pc)
 {

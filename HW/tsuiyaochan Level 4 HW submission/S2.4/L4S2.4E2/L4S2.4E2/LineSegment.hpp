@@ -39,11 +39,11 @@ public:
     
     // Member functions
     string ToString() const;                    // print out the details of the line
-    friend ostream& operator << (ostream& os, const LineSegment& l);
     
     double Length() const;                        // return the length of the line
 
 };
+ostream& operator << (ostream& os, const LineSegment& l);
 
 #endif
 

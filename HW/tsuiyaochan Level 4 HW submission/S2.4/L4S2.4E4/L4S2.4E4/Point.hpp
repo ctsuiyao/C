@@ -22,7 +22,6 @@ public:
     // Constructors
     Point();                                // Default constructor
     Point(double xval, double yval);        // Initialize with x and y value
-    explicit Point(double xval);        // Initialize with 1 value
     Point(const Point &pc);                 // initialize a copy constructor
     ~Point();
     

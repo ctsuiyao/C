@@ -39,10 +39,12 @@ public:
     
     // Member functions
     string ToString() const;                    // print out the details of the circle
-    friend ostream& operator << (ostream& os, const Circle& c);
     
     double Diameter() const;                        // return the diameter of the circle
     double Area() const;                        // return the area of the circle
     double Circumference() const;                        // return the circumference of the circle
 };
+
+ostream& operator << (ostream& os, const Circle& c);
+
 #endif /* Circle_hpp */
