@@ -19,21 +19,28 @@ int main(int argc, const char * argv[]) {
     //    In the main program, the full namespace for Point class.
     CHRISTINE::CAD::Point p1(1.0, 1.0);
     CHRISTINE::CAD::Point p2(4.0, 1.0);
-    cout << p1.ToString();
+    cout << p1;
     cout << "\n";
-    cout << p2.ToString();
+    cout << p2;
     cout << "\n";
     
     // In the main program, using declaration for using a single class (Line).
-    using namespace CHRISTINE::CAD;
-    LineSegment l(p1, p2);
-    cout << l.ToString();
+    using CHRISTINE::CAD::LineSegment;
+    LineSegment line(p1, p2);
+    cout << line;
     cout << "\n";
     
-    //• In the main program, using the Circle class by creating a shorter alias for the YourName::CAD namespace.
-    namespace CC = CHRISTINE::CAD;
-    CC::Circle c;
-    cout << c.ToString();
-    cout << "\n";
+    
+    // Using declaration for a complete namespace (Containers).
+    using namespace CHRISTINE::Containers;
+    ArrayC arr1 = ArrayC(3);
+    arr1.SetElement(0, p1);
+    cout << "\narr1[0] is " << arr1.GetElement(0) << endl;
+    
+    
+    // Using the Circle class by creating a shorter alias.
+    namespace CCH = CHRISTINE::CAD;
+    CCH::Circle c(p1, line);
+    cout << c;
     return 0;
 }

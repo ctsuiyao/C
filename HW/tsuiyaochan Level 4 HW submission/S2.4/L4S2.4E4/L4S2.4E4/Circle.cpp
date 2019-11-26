@@ -98,6 +98,6 @@ double Circle::Circumference() const
 
 ostream& operator << (ostream& os, const Circle& c)
 { // Print the complex number
-    os << c.ToString() << "\n";
+    os << "center: " << c.centerPoint << "\nradius: " << c.m_radius << "\n";
     return os;
 }

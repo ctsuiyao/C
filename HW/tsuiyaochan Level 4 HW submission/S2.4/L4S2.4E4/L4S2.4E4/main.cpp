@@ -19,10 +19,11 @@ int main(int argc, const char * argv[]) {
     const LineSegment line(p1, p2);
     const Circle c(p1, line);
     
-    cout << p1 << endl;
-    cout << p2 << endl;
-    cout << line << endl;
-    cout << c << endl;
+    cout << p1;
+    cout << "\n" << endl;
+    cout << line;
+    cout << "\n" << endl;
+    cout << c;
     
     return 0;
 }

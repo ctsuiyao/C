@@ -95,3 +95,22 @@ ArrayC& ArrayC::operator=(const ArrayC& m)
     }
 return *this;
 }
+
+
+// Operator overloading
+Point& ArrayC::operator [] (int index)
+{
+    if (index < 0 || index >= m_size)
+        return m_data[0];
+    
+    return m_data[index];
+}
+
+const Point& ArrayC::operator [] (int index) const
+{ // Return a constant reference to Point
+    
+    if (index < 0 || index >= m_size)
+        return m_data[0];
+    
+    return m_data[index];
+}

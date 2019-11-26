@@ -23,6 +23,17 @@ int main(int argc, const char * argv[]) {
      
     cout << "Size of array: " << (*c_arr).Size() << endl;
     cout << "First Point is: " << (*c_arr).GetElement(0) << endl;
+    
+    
+    // Test square bracket operator function
+    Point p3 = (*c_arr)[1];
+    cout << p3;
+
+   
+    // index out of range so return the 0 position
+    cout << (*c_arr)[2] << endl;
+   
+    
      
     return 0;
 }

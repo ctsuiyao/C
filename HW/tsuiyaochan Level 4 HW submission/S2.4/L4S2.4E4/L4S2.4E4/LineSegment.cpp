@@ -103,6 +103,6 @@ double LineSegment::Length() const
 
 ostream& operator << (ostream& os, const LineSegment& l)
 { // Print the complex number
-    os << l.ToString() << "\n";
+    os << "Line:" << l.startPoint << "-" << l.endPoint << "\n" << endl;
     return os;
 }
