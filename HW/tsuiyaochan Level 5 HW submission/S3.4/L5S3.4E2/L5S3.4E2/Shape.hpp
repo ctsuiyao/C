@@ -10,13 +10,24 @@
 #define Shape_hpp
 
 #include <stdio.h>
+#include <iostream>
+using namespace std;
+
 class Shape
 {
 private:
     int id;
 public:
     Shape();                                //Default Constructor
-    ~Shape();                               //Destructor
     Shape(const Shape& s);                  //Copy Constructor
-}
+    virtual ~Shape();                       //Destructors
+    
+    // Operator overloading
+    Shape& operator = (const Shape& s); // Assignment operator
+    
+    string ToString() const;
+    
+    // Accessing functions
+    int ID() const;
+};
 #endif /* Shape_hpp */

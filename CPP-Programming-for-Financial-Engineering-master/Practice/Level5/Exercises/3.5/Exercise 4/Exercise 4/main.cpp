@@ -21,7 +21,7 @@ int main()
     
     Shape* shapes[10];
     
-    shapes[0] = new Point;                                  // Default constructor
+    shapes[0] = new Shape;                                  // Default constructor
     shapes[1] = new Point(1.0);                             // Constructor with equal coordinates
     shapes[2] = new Point(3.0, 4.0);                        // Constructor with two coordinates
     shapes[3] = new Point(Point(0.0));                      // Copy constructor
