@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
     Point p1(5.0, 6.0);
     Point p2(2.0, 3.0);
     int f = 3;
-    bool e;
+    
     Point p3 = p1 - p2;
     p3.ToString();
     cout << "\n";

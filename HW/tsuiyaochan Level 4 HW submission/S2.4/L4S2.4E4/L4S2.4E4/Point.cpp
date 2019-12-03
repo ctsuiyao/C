@@ -69,21 +69,15 @@ Point& Point::operator = (const Point& p)
 // Equally compare operator.
 bool Point::operator == (const Point& p) const
 {
-    if((px==p.px)&&(py==p.py)){
-        return true;
-    }else{
-        return false;
-    }
+    return ((px==p.px)&&(py==p.py));
 }
-
+                     
 Point& Point::operator *= (double factor) // Scale the coordinates & assign
 {
-    
-    Point tmp = (*this) * factor;
-    *this = tmp;
+    px *= factor;
+    py *= factor;
     
     return *this;
-    
 }
 double Point::X() const
 {
@@ -136,6 +130,6 @@ double Point::Distance(const Point& pt) const
 }
 ostream& operator << (ostream& os, const Point& p)
 { // Print the complex number
-    os << p.ToString() << "\n";
+    os << "Point(" << p.px << "," << p.py << ")";
     return os;
 }
